@@ -1,0 +1,84 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <!-- font-awesome-icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <title>iM-Player</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- MAIN SONG PAGE -->
+
+        <main class="mainPage" style="display: block; animation: 700ms ease-in 0s 1 normal none running slideFromBottom;">
+            <div class="btnsAndHeadingDiv">
+                <a class="meloadyBtn"><i class="fas fa-music"></i></a>
+                <h5>PLAYING NOW</h5>
+                <a class="listBtn"><i class="fas fa-solid fa-bars"></i></a>
+            </div>
+
+            <div class="imgDiv">
+                <img src="./img/song2.jpg" alt="cover image" id="songImage" class="playingSongImg" style="animation: 3s linear 0s infinite normal none running rotate; object-fit: fill;">
+            </div>
+
+            <div class="titleDiv">
+                <h2 id="songName" class="titleSong">Young Shahrukh</h2>
+                <h5 id="artistName" class="artistName">Tesher</h5>
+            </div>
+
+            <div class="sliderDiv">
+                <div class="timeDuration">
+                    <p id="current">00:56</p>
+                    <p id="duration">02:42</p>
+                </div>
+                <div class="progress-area">
+                    <div class="progress-bar" style="width: 35.0596%;">
+                        <audio src="./music/song2.mp3" id="audio"></audio>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="audioControls">
+                <a id="repeatBtn"><i class="material-icons-round" title="Playlist Looped">repeat</i></a>
+                <a id="randomBtn" style="display: none; background-color: #6e98fe;"><i class="material-icons-round" style="color: white;" title="Songs Shuffle">shuffle</i></a>
+                <a id="repeatOneBtn" style="display: none; background-color: #6e98fe;"><i class="material-icons-round" style="color: white;" title="Repeat This">repeat_one</i></a>
+                <a id="backSongBtn"><i class="fas fa-solid fa-backward" title="Previous Song"></i></a>
+                <a id="pauseSong" class="pauseSongBtn" style="display: block;"><i class="fas fa-solid fa-pause" title="Pause"></i></a>
+                <a id="playingSong" class="playingSongBtn" style="display: none;"><i class="fas fa-solid fa-play" title="Play"></i></a>
+                <a id="frontSongBtn"><i class="fas fa-solid fa-forward" title="Next Song"></i></a>
+                <a id="volumeUp"><i class="fas fa-volume-up" title="mute-this"></i></a>
+                <a id="muteBtn" style="display: none; background-color: #6e98fe;"><i class="fas fa-volume-mute" style="color: white;" title="Un-mute"></i></a>
+            </div>
+        </main>
+
+        <!-- SEARCH SONG PAGE -->
+
+        <main class="searchPage" style="display: none; animation: 700ms ease-in 0s 1 normal none running slideFromTop;">
+            <div class="btnsAndHeadingDiv">
+                <h5 id="songHeading">Young Shahrukh</h5>
+            </div>
+
+            <div class="imgAndBtnDiv">
+                <a id="heartBtn" class="heartBtn"><i class="fas fa-solid fa-heart"></i></a>
+                <div class="imgDiv2">
+                    <img src="./img/song2.jpg" alt="cover image" id="songImage2" class="playingSongImg2" style="animation: 3s linear 0s infinite normal none running rotate; object-fit: fill;">
+                </div>
+                <a class="closeBtn"><i class="fas fa-times"></i></a>
+            </div>
+
+            <ul class="songListDiv">
+            <li liindex="0" class="" onclick="clicked(this)"><audio src="./music/song0.mp3"></audio><div class="songsNameAndBtnDiv"><div class="songsNameDiv"><h4 class="songName">We Will Rock You</h4><h6 class="artistName">Max Raabe</h6></div><a class="pauseSongBtn1" id="pauseSong0" style="display: none;"><i class="fas fa-solid fa-pause" title="Pause"></i></a><a class="playingSongBtn1" id="playingSong0" style="display: block;"><i class="fas fa-solid fa-play" title="Play"></i></a></div></li><li liindex="1" onclick="clicked(this)" class=""><audio src="./music/song1.mp3"></audio><div class="songsNameAndBtnDiv"><div class="songsNameDiv"><h4 class="songName">Born To Shine</h4><h6 class="artistName">Diljit Dosanjh</h6></div><a class="pauseSongBtn1" id="pauseSong1" style="display: none;"><i class="fas fa-solid fa-pause" title="Pause"></i></a><a class="playingSongBtn1" id="playingSong1" style="display: block;"><i class="fas fa-solid fa-play" title="Play"></i></a></div></li><li liindex="2" onclick="clicked(this)" class="current"><audio src="./music/song2.mp3"></audio><div class="songsNameAndBtnDiv"><div class="songsNameDiv"><h4 class="songName">Young Shahrukh</h4><h6 class="artistName">Tesher</h6></div><a class="pauseSongBtn1" id="pauseSong2" style="display: none;"><i class="fas fa-solid fa-pause" title="Pause"></i></a><a class="playingSongBtn1" id="playingSong2" style="display: block;"><i class="fas fa-solid fa-play" title="Play"></i></a></div></li><li liindex="3" onclick="clicked(this)"><audio src="./music/song3.mp3"></audio><div class="songsNameAndBtnDiv"><div class="songsNameDiv"><h4 class="songName">Frozen</h4><h6 class="artistName">Madonna</h6></div><a class="pauseSongBtn1" id="pauseSong3" style="display: none;"><i class="fas fa-solid fa-pause" title="Pause"></i></a><a class="playingSongBtn1" id="playingSong3" style="display: block;"><i class="fas fa-solid fa-play" title="Play"></i></a></div></li><li liindex="4" onclick="clicked(this)"><audio src="./music/song4.mp3"></audio><div class="songsNameAndBtnDiv"><div class="songsNameDiv"><h4 class="songName">Runaway</h4><h6 class="artistName">AURORA</h6></div><a class="pauseSongBtn1" id="pauseSong4" style="display: none;"><i class="fas fa-solid fa-pause" title="Pause"></i></a><a class="playingSongBtn1" id="playingSong4" style="display: block;"><i class="fas fa-solid fa-play" title="Play"></i></a></div></li><li liindex="5" onclick="clicked(this)"><audio src="./music/song5.mp3"></audio><div class="songsNameAndBtnDiv"><div class="songsNameDiv"><h4 class="songName">Hypnotize</h4><h6 class="artistName">The Notorious B.I.G.</h6></div><a class="pauseSongBtn1" id="pauseSong5" style="display: none;"><i class="fas fa-solid fa-pause" title="Pause"></i></a><a class="playingSongBtn1" id="playingSong5" style="display: block;"><i class="fas fa-solid fa-play" title="Play"></i></a></div></li><li liindex="6" onclick="clicked(this)"><audio src="./music/song6.mp3"></audio><div class="songsNameAndBtnDiv"><div class="songsNameDiv"><h4 class="songName">Herbalist</h4><h6 class="artistName">Tarante Groove Machine</h6></div><a class="pauseSongBtn1" id="pauseSong6" style="display: none;"><i class="fas fa-solid fa-pause" title="Pause"></i></a><a class="playingSongBtn1" id="playingSong6" style="display: block;"><i class="fas fa-solid fa-play" title="Play"></i></a></div></li><li liindex="7" onclick="clicked(this)"><audio src="./music/song7.mp3"></audio><div class="songsNameAndBtnDiv"><div class="songsNameDiv"><h4 class="songName">AVA (Extended Mix)</h4><h6 class="artistName">Garmiani</h6></div><a class="pauseSongBtn1" id="pauseSong7" style="display: none;"><i class="fas fa-solid fa-pause" title="Pause"></i></a><a class="playingSongBtn1" id="playingSong7" style="display: block;"><i class="fas fa-solid fa-play" title="Play"></i></a></div></li><li liindex="8" onclick="clicked(this)"><audio src="./music/song8.mp3"></audio><div class="songsNameAndBtnDiv"><div class="songsNameDiv"><h4 class="songName">Nanjamma Remix</h4><h6 class="artistName">DJ ANU SKS</h6></div><a class="pauseSongBtn1" id="pauseSong8" style="display: none;"><i class="fas fa-solid fa-pause" title="Pause"></i></a><a class="playingSongBtn1" id="playingSong8" style="display: block;"><i class="fas fa-solid fa-play" title="Play"></i></a></div></li><li liindex="9" onclick="clicked(this)"><audio src="./music/song9.mp3"></audio><div class="songsNameAndBtnDiv"><div class="songsNameDiv"><h4 class="songName">Beautiful People </h4><h6 class="artistName">Ed Sheeran-(feat. Khalid)</h6></div><a class="pauseSongBtn1" id="pauseSong9" style="display: none;"><i class="fas fa-solid fa-pause" title="Pause"></i></a><a class="playingSongBtn1" id="playingSong9" style="display: block;"><i class="fas fa-solid fa-play" title="Play"></i></a></div></li><li liindex="10" onclick="clicked(this)"><audio src="./music/song10.mp3"></audio><div class="songsNameAndBtnDiv"><div class="songsNameDiv"><h4 class="songName">The Business</h4><h6 class="artistName">Tiësto</h6></div><a class="pauseSongBtn1" id="pauseSong10" style="display: none;"><i class="fas fa-solid fa-pause" title="Pause"></i></a><a class="playingSongBtn1" id="playingSong10" style="display: block;"><i class="fas fa-solid fa-play" title="Play"></i></a></div></li><li liindex="11" onclick="clicked(this)"><audio src="./music/song11.mp3"></audio><div class="songsNameAndBtnDiv"><div class="songsNameDiv"><h4 class="songName">SunSonio</h4><h6 class="artistName">PradeepSonu</h6></div><a class="pauseSongBtn1" id="pauseSong11" style="display: none;"><i class="fas fa-solid fa-pause" title="Pause"></i></a><a class="playingSongBtn1" id="playingSong11" style="display: block;"><i class="fas fa-solid fa-play" title="Play"></i></a></div></li></ul>
+        </main>
+
+    </div>
+
+    <script src="songsList.js"></script>
+    <script src="app.js"></script>
+
+
+</body></html>

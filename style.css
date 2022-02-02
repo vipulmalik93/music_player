@@ -1,0 +1,384 @@
+@import url("https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;700&display=swap");
+/*
+ ______________________________________________
+|                                              |
+|     DEFAULT BODY AND OTHER CSS TAG           |
+|______________________________________________|
+*/
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --blue-theme: #d2e1f6;
+  --lightBlue-shade: #e7effc;
+  --font-shade: #fff;
+  --light-fontColor: #a1b1ca;
+  --darkBlue-shade: #6e98fe;
+  --currentSong-color: #d3dff5;
+  --btn-shadow: #bbbbbb;
+  --songFont-color: #6c7a94;
+  --btn-angleShadow: rgb(148, 148, 148);
+}
+
+body {
+  background-color: var(--blue-theme);
+  height: 100vh;
+  margin: auto;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  color: var(--light-fontColor);
+  font-family: "Zen Old Mincho", serif;
+}
+
+.container {
+  position: relative;
+  width: 300px;
+  height: 615px;
+  border-radius: 1.3rem;
+  -webkit-border-radius: 46px;
+  border-radius: 46px;
+  -webkit-box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background-color: var(--lightBlue-shade);
+}
+
+/************ MAIN-SONG-PAGE-CSS*******************/
+
+.mainPage {
+  overflow: hidden;
+}
+
+.btnsAndHeadingDiv {
+  display: flex;
+  justify-content: space-around;
+  margin: 2rem 0rem;
+  align-items: center;
+}
+
+.imgDiv {
+  height: 14.188rem;
+  width: 14.188rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  background-size: cover;
+  border-radius: 50%;
+  box-shadow: 10px 10px 25px #a9b9d2, -15px -15px 30px var(--font-shade);
+  margin-bottom: 2rem;
+}
+
+.playingSongImg {
+  height: 13rem;
+  width: 13rem;
+  border-radius: 50%;
+}
+
+.sliderDiv,
+.titleDiv,
+.audioControls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.audioControls {
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 2rem 0rem;
+}
+
+.sliderDiv {
+  width: 90%;
+  margin: auto;
+  flex-direction: column;
+}
+
+.progress-area {
+  cursor: pointer;
+  height: 5px;
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: inset -2px -2px 8px white, inset 2px 2px 8px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+.sliderDiv .progress-bar {
+  height: 5px;
+  width: 0%;
+  position: relative;
+  border-radius: 5rem;
+  background: red;
+}
+
+.progress-bar::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  right: -5px;
+  z-index: 2;
+  opacity: 0;
+  pointer-events: none;
+  background-color: var(--lightBlue-shade);
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: solid 0.375em transparent;
+  box-shadow: 0 2px 5px #7d7d7d;
+  background: linear-gradient(var(--darkBlue-shade), var(--darkBlue-shade))
+      padding-box,
+    linear-gradient(#fbfbfb, var(--lightBlue-shade)) border-box;
+  transform: translateY(-50%);
+  transition: opacity 0.2s ease;
+}
+
+.progress-area:hover .progress-bar::before {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.timeDuration {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.titleDiv {
+  margin: 1.438rem 0px;
+  flex-direction: column;
+}
+
+.titleSong,
+.songName {
+  color: var(--songFont-color);
+  font-weight: 700;
+  text-transform: uppercase;
+  word-break: break-all;
+}
+
+a {
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+    rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+a:hover {
+  box-shadow: 0 2px 3px var(--btn-shadow), 0 -1px 3px var(--btn-angleShadow);
+  top: 1px;
+}
+a:active {
+  box-shadow: inset 1px 1px 3px var(--btn-shadow),
+    inset -1px -1px 3px var(--btn-angleShadow);
+  top: 5px;
+}
+
+i {
+  padding: 1rem;
+  color: var(--light-fontColor);
+}
+
+.pauseSongBtn {
+  background: var(--darkBlue-shade);
+}
+
+#pauseSong {
+  display: none;
+}
+
+.pauseSongBtn i {
+  color: white;
+}
+
+.material-icons-round {
+  font-size: 16px !important;
+}
+
+/************ SEARCh-SONG-PAGE-CSS*******************/
+.searchPage {
+  overflow: hidden;
+  display: none;
+}
+
+.imgAndBtnDiv {
+  display: flex;
+  justify-content: space-around;
+  margin: 3.25rem 0rem;
+  align-items: center;
+}
+
+.imgDiv2 {
+  height: 8rem;
+  width: 8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  border-radius: 50%;
+  box-shadow: 10px 10px 25px #a9b9d2, -15px -15px 30px var(--font-shade);
+  margin-bottom: 2rem;
+}
+
+.playingSongImg2 {
+  height: 7.2rem;
+  width: 7.2rem;
+  border-radius: 50%;
+}
+
+.heartBtn i,
+.closeBtn i,
+.songsNameAndBtnDiv i {
+  padding: 0.8rem;
+  font-size: 11px;
+}
+
+.songListDiv {
+  width: 95%;
+  margin: 0rem auto;
+  overflow: hidden;
+  overflow-y: scroll;
+  height: 237px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgb(197, 197, 197);
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--darkBlue-shade);
+  border-radius: 10px;
+}
+
+.current {
+  background: var(--blue-theme) !important;
+  box-shadow: inset rgba(9, 30, 66, 0.25) 0px 1px 1px,
+    inset rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+  border-radius: 10px;
+}
+
+.current a {
+  background-color: var(--darkBlue-shade);
+}
+
+.current i {
+  color: white;
+}
+
+.songsNameAndBtnDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  padding: 0.7rem;
+  border-radius: 10px;
+  height: 4rem;
+  cursor: pointer;
+}
+
+.songsNameAndBtnDiv > *.pauseSongBtn1 {
+  display: none;
+}
+
+/* FOOTER */
+footer a {
+  text-decoration: none;
+  margin: 0.5rem;
+}
+
+footer i {
+  color: rgb(81, 81, 252);
+  padding: 0.7rem;
+}
+
+footer i:hover {
+  color: black;
+}
+
+footer {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/*
+ ______________________________________________
+|                                              |
+|            MEDIA QUERIES CSS                 |
+|______________________________________________|
+
+*/
+@media screen and (max-width: 450px) {
+  body {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .container {
+    margin: 1rem;
+  }
+
+  footer {
+    margin-top: 0.5rem;
+    flex-direction: row;
+  }
+}
+
+/*
+ ______________________________________________
+|                                              |
+|               ANIMATION                      |
+|______________________________________________|
+
+*/
+
+@keyframes slideFromBottom {
+  0% {
+    transform: translateY(100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideFromTop {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
